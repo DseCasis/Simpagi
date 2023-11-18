@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModalidadTable extends Migration
+class CreateFundingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateModalidadTable extends Migration
      */
     public function up()
     {
-        Schema::create('modalidad', function (Blueprint $table) {
+        Schema::create('fundings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('investment_project_id')
+                -> constraint('investment_projects');
             $table->softDeletes();
-            $table->foreignId('id_modalidad')->constrained('tipo_modalidad');
             $table->timestamps();
-
-            $table->string('nombre');
+            
+            $table->string('fondo', 100)
+                -> comments('monto de la financiación')->unique();
         });
     }
 
@@ -30,6 +32,6 @@ class CreateModalidadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modalidad');
+        Schema::dropIfExists('fundings');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGestionTable extends Migration
+class CreateInvestmentProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateGestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('gestion', function (Blueprint $table) {
+        Schema::create('investment_projects', function (Blueprint $table) {
             $table->id();
+            $table->softDeletes();
             $table->timestamps();
-            $table->softdeletes();
-            $table->foreignId('id_gestion')->constrained('area');
+
+            $table->string('name', 100)
+                -> comments('nombre del proyecto de inversión')->unique();
         });
     }
 
@@ -28,6 +30,6 @@ class CreateGestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestion');
+        Schema::dropIfExists('investment_projects');
     }
 }

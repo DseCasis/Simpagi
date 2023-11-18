@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProyectoInversionTable extends Migration
+class CreateScalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateProyectoInversionTable extends Migration
      */
     public function up()
     {
-        Schema::create('proyecto_inversion', function (Blueprint $table) {
+        Schema::create('scales', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fondos_id')->constrained('fondos');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('proyecto')->comment('nombre del proyecto de inversion');
+            $table->string('escala', 100)
+                -> comments('escala del trabajador')->unique();
         });
     }
 
@@ -30,6 +30,6 @@ class CreateProyectoInversionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proyecto_inversion');
+        Schema::dropIfExists('scales');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormacionAcademicaTable extends Migration
+class CreateTrainingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateFormacionAcademicaTable extends Migration
      */
     public function up()
     {
-        Schema::create('formacion_academica', function (Blueprint $table) {
+        Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('formacion_academica')->comment('nivel academico de los estudios');
+            $table->string('formacion_academica', 100)
+                -> comments('formacion academica del trabajador')->unique();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateFormacionAcademicaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formacion_academica');
+        Schema::dropIfExists('trainings');
     }
 }

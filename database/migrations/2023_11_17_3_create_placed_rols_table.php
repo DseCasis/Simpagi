@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvinciaTable extends Migration
+class CreatePlacedRolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateProvinciaTable extends Migration
      */
     public function up()
     {
-        Schema::create('provincia', function (Blueprint $table) {
+        Schema::create('placed_rols', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('position_id')
+                -> constraint('positions');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('nombre_provincia')->comment('provincias del Ecuador');
+            $table->string('rol', 100)
+                -> comments('rol del trabajador')->unique();
         });
     }
 
@@ -29,6 +32,6 @@ class CreateProvinciaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provincia');
+        Schema::dropIfExists('placed_rols');
     }
 }

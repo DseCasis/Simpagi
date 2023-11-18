@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGrupoEtnicoTable extends Migration
+class CreateEthnicGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateGrupoEtnicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_etnico', function (Blueprint $table) {
+        Schema::create('ethnic_groups', function (Blueprint $table) {
             $table->id();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('grupo_etnico')->comment('nombre de los diferentes grupos etnicos del ecuador');
+            $table->string('grupo_etnico', 100)
+            -> comments('grupo etnico al que puede pertencer el trabajador');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateGrupoEtnicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo_etnico');
+        Schema::dropIfExists('ethnic_groups');
     }
 }

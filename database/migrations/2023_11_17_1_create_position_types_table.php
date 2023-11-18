@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolPuestoTable extends Migration
+class CreatePositionTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateRolPuestoTable extends Migration
      */
     public function up()
     {
-        Schema::create('rol_puesto', function (Blueprint $table) {
+        Schema::create('position_types', function (Blueprint $table) {
             $table->id();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('rol_puesto')->comment('que rol cumplen los diferentes puestos');
+            $table->string('tipo_cargo', 100)
+                -> comments('tipo de cargo del trabajador')->unique();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateRolPuestoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rol_puesto');
+        Schema::dropIfExists('position_types');
     }
 }
