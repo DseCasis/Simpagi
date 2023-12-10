@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\CantonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProvinceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,5 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-//Route::group(['middleware' => ['role:admin']], function () {
-//    Route::post('products', [ProductController::class, 'store']);
-//    Route::put('products/{product}', [ProductController::class, 'update']);
-//    Route::delete('products/{product}', [ProductController::class, 'destroy']);
-//    Route::get('sales', [SaleController::class, 'index']);
-    Route::apiResource('users', UserController::class);
-//});
+Route::apiResource('provinces', ProvinceController::class);
+Route::apiResource('cantons', CantonController::class);

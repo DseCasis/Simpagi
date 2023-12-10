@@ -11,10 +11,10 @@ class Canton extends Model
     protected $table = 'cantons';
     protected $fillable = [
         'id',
-        'name',
+        'cantones',
     ];
 
     public function province(){
-        return this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class);
     }
 }
