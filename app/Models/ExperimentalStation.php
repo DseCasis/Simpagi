@@ -10,7 +10,6 @@ class ExperimentalStation extends Model
     //use HasFactory;
     protected $table = 'experimental_stations';
     protected $fillable = [
-        'id',
         'name',
     ];
 }

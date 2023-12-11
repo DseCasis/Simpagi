@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ExperimentalFarm extends Model
+class Placed_rol extends Model
 {
-    //use HasFactory;
-    protected $table = 'experimental_farms';
+    protected $table = 'placed_rols';
+
     protected $fillable = [
-      'nombre',
+        'rol'
     ];
 }

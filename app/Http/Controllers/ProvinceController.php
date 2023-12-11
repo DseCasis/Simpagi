@@ -22,19 +22,19 @@ class ProvinceController extends Controller
 
     public function store(Request $request)
     {
-        $province = new Province();
-        $province->id = $request->id;
-        $province->provincias = $request->provincias;
-        $province->save();
-
-        return response()->json([
-            'data' => $province,
-            'msg' => [
-                'summary' => 'Actualizado correctamente',
-                'datail' => 'La provincia se actualizo de manera correcta',
-                'code' => '201'
-            ]
-        ]);
+//        $province = new Province();
+//        $province->id = $request->id;
+//        $province->provincias = $request->provincias;
+//        $province->save();
+//
+//        return response()->json([
+//            'data' => $province,
+//            'msg' => [
+//                'summary' => 'Actualizado correctamente',
+//                'datail' => 'La provincia se actualizo de manera correcta',
+//                'code' => '201'
+//            ]
+//        ]);
     }
 
     public function show($province)
@@ -51,21 +51,21 @@ class ProvinceController extends Controller
 
     public function update(Request $request, $province)
     {
-        $province = Province::find($province);
-        $province->provincias = $request->provincias;
-        $province->save();
-
-        return response()->json([
-            'data' => $province,
-            'msg' => []
-        ]);
+//        $province = Province::find($province);
+//        $province->provincias = $request->provincias;
+//        $province->save();
+//
+//        return response()->json([
+//            'data' => $province,
+//            'msg' => []
+//        ]);
     }
 
     public function destroy(Province $province)
     {
-        $province->delete();
-        return response()->json([
-            'msg' => []
-        ]);
+//        $province->delete();
+//        return response()->json([
+//            'msg' => []
+//        ]);
     }
 }

@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Canton extends Model
 {
-    //use HasFactory;
+    use HasFactory;
     protected $table = 'cantons';
     protected $fillable = [
-        'id',
-        'cantones',
+        'cantones'
     ];
 
     public function province(){

@@ -11,7 +11,13 @@ class CantonController extends Controller
 
     public function index()
     {
-        //
+        $canton =  Canton::all();
+        return response()->json(
+            [
+                'data'=>$canton,
+                'msg'=>[]
+            ],
+        );
     }
 
 
