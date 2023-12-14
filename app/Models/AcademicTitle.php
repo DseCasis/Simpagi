@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Process extends Model
+class AcademicTitle extends Model
 {
-    protected $table = 'process';
+    use HasFactory;
 
+    protected $table = 'academic_titles';
     protected $fillable = [
-        'proceso'
+        'titulo_academico',
     ];
-
-    public function unidad(){
-        return $this->hasMany('Unit');
-    }
 
     public function users(){
         return $this->hasMany(User::class);
     }
+
 }

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class General_Budget extends Model
+class PositionType extends Model
 {
-    protected $table = 'general_budget_items';
+    use HasFactory;
 
+    protected $table = 'position_types';
     protected $fillable = [
-        'partida_presupuestaria_general'
+        'tipo_cargo'
     ];
 }

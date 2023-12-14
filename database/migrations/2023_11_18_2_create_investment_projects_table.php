@@ -15,6 +15,8 @@ class CreateInvestmentProjectsTable extends Migration
     {
         Schema::create('investment_projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('funding_id')
+                ->constrained('fundings');
             $table->softDeletes();
             $table->timestamps();
 

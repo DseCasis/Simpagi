@@ -12,4 +12,12 @@ class Unit extends Model
     protected $fillable = [
         'unidad'
     ];
+
+    public function unidad(){
+        return $this->belongsTo('Process');
+    }
+
+    public function gestion(){
+        return $this->hasMany('Managemeent');
+    }
 }

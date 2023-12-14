@@ -15,11 +15,9 @@ class CreateFundingsTable extends Migration
     {
         Schema::create('fundings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('investment_project_id')
-                -> constraint('investment_projects');
             $table->softDeletes();
             $table->timestamps();
-            
+
             $table->string('fondo', 100)
                 -> comments('monto de la financiación')->unique();
         });

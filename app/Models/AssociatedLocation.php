@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ExperimentalStation extends Model
+class AssociatedLocation extends Model
 {
     use HasFactory;
 
-    protected $table = 'experimental_stations';
+    protected $table = 'associated_locations';
+
     protected $fillable = [
-        'estacion_experimental',
+        'localidad_asociada'
     ];
 
     public function station(){
-        return $this->belongsTo(AssociatedLocation::class);
+        return $this->hasOne(ExperimentalStation::class);
     }
 
     public function province()
@@ -23,7 +24,7 @@ class ExperimentalStation extends Model
         return $this->belongsTo(Province::class);
     }
 
-    public function partida(){
-        return $this->hasMany('General_Budget');
+    public function users(){
+        return $this->hasMany(User::class);
     }
 }

@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class InvestmentProject extends Model
 {
     use HasFactory;
 
-    protected $table = 'trainings';
+    protected $table = 'investment_projects';
     protected $fillable = [
-        'formacion_academica'
+        'name'
     ];
 
-    public function users(){
-        return $this->hasMany(User::class);
+    public function fondo(){
+        return $this->belongsTo(Funding::class);
     }
 }

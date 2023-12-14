@@ -15,8 +15,6 @@ class CreateBusysTable extends Migration
     {
         Schema::create('busys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('special_situation_id')
-                -> constrained('special_situations');
             $table->softDeletes();
             $table->timestamps();
 

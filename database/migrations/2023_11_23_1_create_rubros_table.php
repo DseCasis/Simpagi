@@ -19,6 +19,7 @@ class CreateRubrosTable extends Migration
             $table->timestamps();
 
             $table->string('rubro');
+            $table->string('category');
         });
     }
 

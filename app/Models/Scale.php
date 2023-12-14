@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scale extends Model
 {
-    protected $table = 'scales';
+    use HasFactory;
 
+    protected $table = 'scales';
     protected $fillable = [
         'escala'
     ];

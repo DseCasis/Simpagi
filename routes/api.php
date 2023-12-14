@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\CantonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProvinceController;
+use \App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +19,7 @@ use App\Http\Controllers\ProvinceController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('provinces', ProvinceController::class);
-Route::apiResource('cantons', CantonController::class);
+
+Route::apiResource('users', UserController::class);
+Route::get('/location/{id}', [\App\Http\Controllers\UserController::class, 'getLocation']);
+

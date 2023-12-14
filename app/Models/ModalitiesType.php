@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Investment_Project extends Model
+class ModalitiesType extends Model
 {
-    protected $table = 'investment_projects';
+    protected $table = 'modalities_types';
 
     protected $fillable = [
-        'name'
+        'modalidad'
     ];
 }

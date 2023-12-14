@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Associated_location extends Model
+class ResearchArea extends Model
 {
-    protected $table = 'associated_locations';
+    protected $table = 'research_areas';
 
     protected $fillable = [
-        'localidad_asociada'
+        'area_investigacion',
+        'siglas'
     ];
 }

@@ -22,6 +22,7 @@ class CreateResearchAreasTable extends Migration
 
             $table->string('area_investigacion')
                 ->comment('Nombre del área de investigación');
+            $table->string('siglas');
         });
     }
 

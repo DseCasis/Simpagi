@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Position_Type extends Model
+class ProgramDepartment extends Model
 {
-    protected $table = 'position_types';
+    protected $table = 'program_departments';
 
     protected $fillable = [
-        'tipo_cargo'
+        'programa_departamento'
     ];
 }

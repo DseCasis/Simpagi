@@ -17,12 +17,10 @@ class CreateAssociatedLocationsTable extends Migration
             $table->id();
             $table->foreignId('experimental_station_id')
                 ->constrained('experimental_stations');
-            $table->foreignId('province_id')
-                ->constrained('provinces');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('localidad asociada')
+            $table->string('localidad_asociada')
                 ->comment('Nombre de la localidad asociada a la estacion experimental');
 
         });

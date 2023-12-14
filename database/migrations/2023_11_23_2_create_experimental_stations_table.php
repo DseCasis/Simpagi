@@ -15,6 +15,8 @@ class CreateExperimentalStationsTable extends Migration
     {
         Schema::create('experimental_stations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('province_id')
+                ->constrained('provinces');
             $table->softDeletes();
             $table->timestamps();
 

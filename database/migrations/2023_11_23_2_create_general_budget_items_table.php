@@ -20,7 +20,7 @@ class CreateGeneralBudgetItemsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->string('partida presupuestaria general')
+            $table->string('partida_presupuestaria_general')
                 ->comment('partida presupuestaria de cada estacion experimental');
         });
     }

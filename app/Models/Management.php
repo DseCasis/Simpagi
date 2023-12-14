@@ -12,4 +12,12 @@ class Management extends Model
     protected $fillable = [
         'gestion'
     ];
+
+    public function gestion(){
+        return $this->belongsTo('Unit');
+    }
+
+    public function area(){
+        return $this->hasMany('Area');
+    }
 }

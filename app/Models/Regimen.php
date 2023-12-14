@@ -3,17 +3,23 @@
 namespace App\Models;
 
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Regimen extends Model
 {
-    //use HasFactory;
+    use HasFactory;
+
     protected $table = 'regimenes';
     protected $fillable = [
-        'regimen',
+        'regimenes',
     ];
 
     function modality(){
-        return $this-> hasOne(Modality::class);
+        return $this-> hasMany(Modality::class);
+    }
+
+    public function users(){
+        return $this->hasMany(User::class);
     }
 }

@@ -19,4 +19,14 @@ class Province extends Model
         return $this->hasMany(Canton::class);
     }
 
+    public function station()
+    {
+        return $this->belongsTo(AssociatedLocation::class);
+    }
+
+    public function experimental()
+    {
+        return $this->hasMany(ExperimentalStation::class);
+    }
+
 }

@@ -12,4 +12,8 @@ class Busy extends Model
     protected $fillable = [
         'ocupado'
     ];
+
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }
