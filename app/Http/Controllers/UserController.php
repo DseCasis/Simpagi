@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Users\UserCollection;
+use App\Http\Resources\Users\UserResource;
 use App\Models\AcademicTitle;
 use App\Models\AssociatedLocation;
 use App\Models\Busy;
@@ -21,8 +23,14 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::where("genero", User::MALE)->get();
-        return response()->json($users);
+        $users = User::get();
+        return (new UserCollection($users))->additional([
+            'msg'=>[
+                'summary' => 'success',
+                'detail' => '',
+                'code' => '200'
+            ]
+        ])->response()->setStatusCode(200);
     }
 
     public function getLocation($id){
@@ -61,11 +69,26 @@ class UserController extends Controller
         $user->funding()->associate(Funding::find($request->input('fondo')));
         $user->regimen()->associate(Regimen::find($request->input('regimenes')));
         $user->save();
+
+        return (new UserResource($user))->additional([
+            'msg'=>[
+                'summary' => 'success',
+                'detail' => 'El usuario a sido creado',
+                'code' => '200'
+            ]
+        ])->response()->setStatusCode(200);
     }
 
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        $user = User::find($user);
+        return (new UserResource($user))->additional([
+            'msg'=>[
+                'summary' => 'success',
+                'detail' => '',
+                'code' => '200'
+            ]
+        ])->response()->setStatusCode(200);
     }
 
     public function update(Request $request, User $user)
@@ -96,18 +119,24 @@ class UserController extends Controller
         $user->regimen()->associate(Regimen::find($request->input('regimenes')));
         $user->save();
 
-        return 'success';
+        return(new UserResource($user))->additional([
+            'msg'=>[
+                'summary' => 'success',
+                'detail' => '',
+                'code' => '200'
+            ]
+        ])->response()->setStatusCode(200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
         $user-> delete();
-        return 'success';
+        return(new UserResource($user))->additional([
+            'msg'=>[
+                'summary' => 'success',
+                'detail' => '',
+                'code' => '200'
+            ]
+        ])->response()->setStatusCode(200);
     }
 }

@@ -22,4 +22,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('users', UserController::class);
 Route::get('/location/{id}', [\App\Http\Controllers\UserController::class, 'getLocation']);
-
