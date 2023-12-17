@@ -58,6 +58,7 @@ class UserController extends Controller
         $user->viatico_residencia= $request->input('viatico_residencia');
         $user->migrante_retornado= $request->input('migrante_retornado');
         $user->remuneracion = $request->input('remuneracion');
+        $user->password = $request->input('password');
         $user->ethnic()->associate(EthnicGroup::find($request->input('grupo_etnico')));
         $user->nationalitie()->associate(Nationality::find($request->input('nacionalidad')));
         $user->associatedLocation()->associate(AssociatedLocation::find($request->input('localidad_asociada')));

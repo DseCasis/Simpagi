@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Model
 {
     const MALE = true;
     const FEMALE = false;
 
-    //use HasFactory;
+    use HasFactory, Notifiable, HasApiTokens;
     protected  $table = 'users';
     protected $fillable = [
         'cedula',
@@ -28,6 +29,7 @@ class User extends Model
         'remuneracion',
         'viatico_residencia',
         'migrante_retornado',
+        'password',
 
     ];
 

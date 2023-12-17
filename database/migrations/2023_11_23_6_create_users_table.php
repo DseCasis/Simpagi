@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->float('remuneracion');
             $table->boolean('viatico_residencia');
             $table->boolean('migrante_retornado');
-            $table->
+            $table->string('password');
 
             $table->foreignId('ethnic_id')
                 ->constrained('ethnic_groups');
