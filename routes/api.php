@@ -16,8 +16,11 @@ use \App\Http\Controllers\AuthController;
 |
 */
 
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('user', [AuthController::class, 'user']);
+
+//Route::get('/user', [AuthController::class, 'user']);
+Route::get('/location', [UserController::class, 'getAllLocations']);
 Route::apiResource('users', UserController::class);
-Route::get('/location/{id}', [\App\Http\Controllers\UserController::class, 'getLocation']);
+Route::get('/location/{id}', [UserController::class, 'getLocation']);

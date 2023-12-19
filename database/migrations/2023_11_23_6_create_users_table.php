@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->bigInteger('cedula');
+            $table->bigInteger('cedula')-> unique();
             $table->string('nombre');
             $table->string('apellido');
             $table->boolean('genero');
@@ -27,12 +27,11 @@ class CreateUsersTable extends Migration
             $table->bigInteger('numero_imposiciones');
             $table->bigInteger('telefono_institucional');
             $table->bigInteger('textension_telefonica');
-            $table->string('correo_institucional');
+            $table->string('correo_institucional')-> unique();
             $table->string('actividad_esigef');
             $table->float('remuneracion');
             $table->boolean('viatico_residencia');
             $table->boolean('migrante_retornado');
-            $table->string('password');
 
             $table->foreignId('ethnic_id')
                 ->constrained('ethnic_groups');

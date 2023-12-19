@@ -11,7 +11,7 @@ class User extends Model
     const MALE = true;
     const FEMALE = false;
 
-    use HasFactory, Notifiable, HasApiTokens;
+    use HasFactory, HasApiTokens;
     protected  $table = 'users';
     protected $fillable = [
         'cedula',
@@ -21,7 +21,6 @@ class User extends Model
         'fecha_nacimiento',
         'fecha_ingreso',
         'numero_imposiciones',
-        'titulo_academico',
         'telefono_institucional',
         'textension_telefonica',
         'correo_institucional',
@@ -31,6 +30,10 @@ class User extends Model
         'migrante_retornado',
         'password',
 
+    ];
+
+    protected $hidden = [
+        'password'
     ];
 
     public function ethnic()

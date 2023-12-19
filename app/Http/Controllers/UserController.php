@@ -41,6 +41,16 @@ class UserController extends Controller
             ->get();
         return response()->json($associatedLocations);
     }
+
+    public function getAllLocations() {
+        $locations = ExperimentalStation::join('associated_locations', 'experimental_stations.id', '=', 'associated_locations.experimental_station_id')
+            ->join('provinces', 'experimental_stations.province_id', '=', 'provinces.id')
+            ->select('experimental_stations.*', 'provinces.*', 'associated_locations.*')
+            ->get();
+        return response()->json($locations);
+      }
+
+
     public function store(Request $request)
     {
         $user = new User();
@@ -58,7 +68,6 @@ class UserController extends Controller
         $user->viatico_residencia= $request->input('viatico_residencia');
         $user->migrante_retornado= $request->input('migrante_retornado');
         $user->remuneracion = $request->input('remuneracion');
-        $user->password = $request->input('password');
         $user->ethnic()->associate(EthnicGroup::find($request->input('grupo_etnico')));
         $user->nationalitie()->associate(Nationality::find($request->input('nacionalidad')));
         $user->associatedLocation()->associate(AssociatedLocation::find($request->input('localidad_asociada')));

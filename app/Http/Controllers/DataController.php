@@ -12,13 +12,17 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-
-    public function getLocation($id){
-        $associatedLocations = ExperimentalStation::join('associated_locations', 'experimental_stations.id', '=', 'associated_locations.experimental_station_id')
-            ->join('provinces', 'experimental_stations.province_id', '=', 'provinces.id')
-            ->select('experimental_stations.*', 'provinces.*')
-            ->where('associated_locations.id', $id)
-            ->get();
-        return response()->json($associatedLocations);
+    function getFormData(Request $request)
+    {
+      $data = $request->all();
+    
+      foreach ($data as $key => $value) {
+        if (strpos($key, "associate") === false) {
+          $output[$key] = $value;
+        }
+      }
+    
+      return $output;
     }
+
 }
